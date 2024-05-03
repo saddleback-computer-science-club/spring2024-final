@@ -9,7 +9,10 @@ add_executable(counseling_exe
             "source/University.hpp"
 )
 
+
+
 target_compile_features(counseling_exe PUBLIC cxx_std_17)
 
 target_include_directories(counseling_exe PUBLIC src)
+target_include_directories(counseling_exe PUBLIC include)
 
