@@ -1,3 +1,6 @@
+#include "Course.hpp"
+#include "Major.hpp"
+#include "University.hpp"
 #include <iostream>
 
 int main()

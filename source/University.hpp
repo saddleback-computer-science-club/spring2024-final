@@ -1,32 +1,35 @@
-#include<iostream>
+#pragma once
+
 #include "Major.hpp"
+#include <iostream>
 using namespace std;
 
-class University{
-    private:
-     // Unique identifier for the university
-      int uni_id;
+class University
+{
+private:
+    // Unique identifier for the university
+    int uni_id;
 
-      // Name of the university
-     string uni_name; 
+    // Name of the university
+    string uni_name;
 
-     // List of majors offered at the university
-    vector<Major> major_list; 
+    // List of majors offered at the university
+    vector<Major> major_list;
 
-    public:
-     // Constructor to initialize a University object
-     University(int id, string name) : uni_id(id), uni_name(name) {}
+public:
+    // Constructor to initialize a University object
+    University(int id, string name)
+        : uni_id(id)
+        , uni_name(name)
+    {}
 
-        /*University Class:
+    /*University Class:
 
-        Constructor: To initialize the University object with default or given values.
-        addMajor(Major major): To add a Major object to the major_list.
-        getMajor(string majorName): To retrieve a Major object by its name.
-       getUniName(): To get the name of the university.
-        getUniId(): To get the ID of the university.   
-        
-        */
+    Constructor: To initialize the University object with default or given values.
+    addMajor(Major major): To add a Major object to the major_list.
+    getMajor(string majorName): To retrieve a Major object by its name.
+   getUniName(): To get the name of the university.
+    getUniId(): To get the ID of the university.
 
-
-    
+    */
 };
