@@ -20,7 +20,7 @@ private:
     float gpa_req;
 
     // Map of required courses for the major
-    map<string, vector<string>> required_courses;
+    vector<vector<vector<string>>> required_courses;
 
 public:
     // Constructor to initialize a Major object
