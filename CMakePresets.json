@@ -1,0 +1,43 @@
+{
+    "version": 2,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 14,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "common",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_CXX_EXTENSIONS": "OFF"
+            }
+        },
+        {
+            "name": "default",
+            "binaryDir": "${sourceDir}/build",
+            "generator": "Ninja",
+            "inherits": "common",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "default",
+            "configurePreset": "default",
+            "jobs": 16
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "default",
+            "configurePreset": "default",
+            "execution": {
+                "jobs": 16
+            }
+        }
+    ]
+}
