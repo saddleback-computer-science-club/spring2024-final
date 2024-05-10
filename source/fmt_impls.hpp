@@ -6,19 +6,20 @@
 
 inline auto format_as(const Course& course)
 {
-    return fmt::format("Course: {} ({} units)", course.name, course.units);
+    return course.name;
+    // return fmt::format("Course: {} ({} units)", course.name, course.units);
 }
 
 inline auto format_as(const Major& major)
 {
-    auto h = fmt::format("Major: {} (required gpa of {})\n", major.name, major.gpa_req);
+    auto h = fmt::format("Major: {} (required gpa of {:.2f})\n", major.name, major.gpa_req);
     std::string req_str;
     for (const auto& disjunct_req : major.required_courses) {
-        req_str += "\t[";
+        std::vector<std::string> conj_req_parts;
         for (const auto& conjunct_req : disjunct_req) {
-            req_str += fmt::format("({}) OR ", fmt::join(conjunct_req, " AND "));
+            conj_req_parts.push_back(fmt::format("[{}]", fmt::join(conjunct_req, " AND ")));
         }
-        req_str += "]\n";
+        req_str += fmt::format("\t{}\n", fmt::join(conj_req_parts, " OR "));
     }
     return fmt::format("{}\nRequired courses = \n{}", h, req_str);
 }
