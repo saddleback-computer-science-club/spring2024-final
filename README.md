@@ -25,3 +25,10 @@ cmake --preset default
 cmake --build build
 ./build/counseling_exe
 ```
+
+If you'd like to execute the units tests, run the following two commands in sequence
+
+```console
+cd build/test
+ctest
+```
