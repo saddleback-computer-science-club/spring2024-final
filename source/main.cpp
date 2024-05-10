@@ -10,7 +10,7 @@ int main()
 
     println("Hello from counseling app!");
 
-    const std::string FILE_NAME = "./data/sample.csv";
+    const std::string FILE_NAME = "./data/uci.csv";
     const std::string UNI_NAME = "UCI";
 
     std::ifstream sample_uni_csv(FILE_NAME);
@@ -21,4 +21,13 @@ int main()
     auto parsed_uni_data = csv_to_uni(UNI_NAME, sample_uni_csv);
 
     println("Parsed Info:\n{}", parsed_uni_data);
+
+    // Parse student transcript data
+
+    // Prompt user for major of choice
+
+    // Check completed courses against required
+
+    // Output remaining required courses, or whether all of them
+    // have been completed
 }
