@@ -22,6 +22,11 @@
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
             }
+        },
+        {
+            "name": "default-windows",
+            "inherits": "default",
+            "generator": "MinGW Makefiles"
         }
     ],
     "buildPresets": [
@@ -29,12 +34,24 @@
             "name": "default",
             "configurePreset": "default",
             "jobs": 16
+        },
+        {
+            "name": "default-windows",
+            "configurePreset": "default-windows",
+            "jobs": 16
         }
     ],
     "testPresets": [
         {
             "name": "default",
             "configurePreset": "default",
+            "execution": {
+                "jobs": 16
+            }
+        },
+        {
+            "name": "default-windows",
+            "configurePreset": "default-windows",
             "execution": {
                 "jobs": 16
             }

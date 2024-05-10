@@ -16,7 +16,7 @@ inline auto format_as(const Major& major)
     for (const auto& disjunct_req : major.required_courses) {
         req_str += "\t[";
         for (const auto& conjunct_req : disjunct_req) {
-            req_str += fmt::format("({}) OR", fmt::join(conjunct_req, " AND "));
+            req_str += fmt::format("({}) OR ", fmt::join(conjunct_req, " AND "));
         }
         req_str += "]\n";
     }
