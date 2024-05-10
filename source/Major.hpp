@@ -33,9 +33,9 @@ struct Major
 
     */
 
-    void add_requirement(DisjunctiveReqs&& req)
+    void add_requirement(const DisjunctiveReqs& req)
     {
-        required_courses.push_back(std::move(req));
+        required_courses.push_back(req);
     }
 
     // For simplified testing

@@ -42,7 +42,7 @@ University csv_to_uni(const std::string& uni_name, std::istream& csv_source)
     std::string line;
     while (std::getline(csv_source, line)) {
         Major major = line_spec_to_major(line);
-        result.add_major(std::move(major));
+        result.add_major(major);
     }
 
     return result;
@@ -66,7 +66,7 @@ Major line_spec_to_major(std::string_view line_source)
 
         DisjunctiveReqs reqs = parse_req(requirement_spec);
 
-        result.add_requirement(std::move(reqs));
+        result.add_requirement(reqs);
     }
 
     return result;

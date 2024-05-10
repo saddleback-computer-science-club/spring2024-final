@@ -11,12 +11,19 @@ inline auto format_as(const Course& course)
 
 inline auto format_as(const Major& major)
 {
-    auto s = fmt::format("Major: {} (required gpa of {})", major.name, major.gpa_req);
-    return fmt::format("{}\nRequired courses = \n{}", s, fmt::join(major.required_courses, ", "));
+    auto h = fmt::format("Major: {} (required gpa of {})\n", major.name, major.gpa_req);
+    std::string req_str;
+    for (const auto& disjunct_req : major.required_courses) {
+        req_str += "\t[";
+        for (const auto& conjunct_req : disjunct_req) {
+            req_str += fmt::format("({}) OR", fmt::join(conjunct_req, " AND "));
+        }
+        req_str += "]\n";
+    }
+    return fmt::format("{}\nRequired courses = \n{}", h, req_str);
 }
 
 inline auto format_as(const University& uni)
 {
-    auto s = fmt::format("University: {}", uni.uni_name);
-    return fmt::format("{}\nInformation on Majors: \n{}", s, fmt::join(uni.major_list, "\n"));
+    return fmt::format("University: {}\nInformation on Majors: \n{}", uni.uni_name, fmt::join(uni.major_list, "\n"));
 }
