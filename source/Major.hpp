@@ -1,18 +1,11 @@
 #pragma once
 
-#include <iostream>
-#include <map>
 #include <string>
 #include <vector>
-using namespace std;
+using std::vector, std::string;
 
-class Major
+struct Major
 {
-
-private:
-    // ID of the university offering this major
-    int uni_id;
-
     // Name of the major
     string major_name;
 
@@ -22,22 +15,9 @@ private:
     // Map of required courses for the major
     vector<vector<vector<string>>> required_courses;
 
-public:
-    // Constructor to initialize a Major object
-    Major(int id, string name, float gpa)
-        : uni_id(id)
-        , major_name(name)
-        , gpa_req(gpa)
-    {}
-
-    /*        Major Class:
-
-            Constructor: To initialize the Major object with default or given values.
-            addRequiredCourse(string courseCategory, vector<string> courses): To add required courses to the
-       required_courses map. getGPAReq(): To get the GPA requirement for the major. getRequiredCourses(): To get the map
-       of required courses. …other getters and setters as needed.
-
-
-
-    */
+    // API to simply append another element to major_list
+    void add_required_courses(vector<vector<string>>&& req)
+    {
+        required_courses.emplace_back(std::move(req));
+    }
 };
