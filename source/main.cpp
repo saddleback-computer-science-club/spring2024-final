@@ -2,6 +2,7 @@
 #include "parsing.hpp"
 #include <fmt/core.h>
 #include <fstream>
+#include <string>
 
 int main()
 {
@@ -9,8 +10,8 @@ int main()
 
     println("Hello from counseling app!");
 
-    constexpr auto FILE_NAME = "./data/sample.csv";
-    constexpr auto UNI_NAME = "UCI";
+    const std::string FILE_NAME = "./data/sample.csv";
+    const std::string UNI_NAME = "UCI";
 
     std::ifstream sample_uni_csv(FILE_NAME);
 
