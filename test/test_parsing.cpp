@@ -25,7 +25,7 @@ TEST_CASE("Requirement statement parsing", "[parse_req]")
 
     REQUIRE(parse_req("A&B&C") == DR{CC{Course("A"), Course("B"), Course("C")}});
     REQUIRE(parse_req("A|B|C") == DR{CC{Course("A")}, CC{Course("B")}, CC{Course("C")}});
-    REQUIRE(parse_req("A&B|C&D&|E&F") ==
+    REQUIRE(parse_req("A&B|C&D|E&F") ==
             DR{CC{Course("A"), Course("B")}, CC{Course("C"), Course("D")}, CC{Course("E"), Course("F")}});
 }
 
