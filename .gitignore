@@ -6,3 +6,6 @@ build/
 
 # Visual Studio
 .vs/
+
+# Mac directory metadata files
+.DS_Store
