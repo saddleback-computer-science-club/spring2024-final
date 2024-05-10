@@ -1,21 +1,21 @@
 #pragma once
 
-#include "Major.hpp"
+#include <string>
+#include <vector>
 
-class Course
+struct Course
 {
+    std::string name;
+    float units;
 
-private:
-    int course_id;
-    string course_name;
-    float course_unit;
+    Course(std::string name)
+        : Course(name, 0.0f)
+    {}
 
-public:
     // Constructor to initialize a Course object
-    Course(int id, string name, float unit)
-        : course_id(id)
-        , course_name(name)
-        , course_unit(unit)
+    Course(std::string name, float unit)
+        : name(name)
+        , units(unit)
     {}
 
     /*
@@ -25,4 +25,15 @@ public:
            getCourseUnit(): To get the number of units the course is worth.
 
     */
+
+    // For simplified testing
+    bool operator==(const Course& rhs) const = default;
 };
+
+// Course requirement spec of the form:
+//   courseA AND courseB AND ...
+using ConjunctiveCourses = std::vector<Course>;
+
+// Requirement spec of a list of conjunctive courses the form:
+//   conjA OR conjB OR ...
+using DisjunctiveReqs = std::vector<ConjunctiveCourses>;

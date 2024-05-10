@@ -1,26 +1,19 @@
 #pragma once
 
 #include "Major.hpp"
-#include <iostream>
 using namespace std;
 
-class University
+struct University
 {
-private:
-    // Unique identifier for the university
-    int uni_id;
-
     // Name of the university
     string uni_name;
 
     // List of majors offered at the university
     vector<Major> major_list;
 
-public:
     // Constructor to initialize a University object
-    University(int id, string name)
-        : uni_id(id)
-        , uni_name(name)
+    University(string name)
+        : uni_name(name)
     {}
 
     /*University Class:
@@ -32,4 +25,12 @@ public:
     getUniId(): To get the ID of the university.
 
     */
+
+    void add_major(const Major& major)
+    {
+        major_list.push_back(major);
+    }
+
+    // For simplified testing
+    bool operator==(const University& rhs) const = default;
 };

@@ -1,32 +1,24 @@
 #pragma once
 
-#include <iostream>
-#include <map>
+#include "Course.hpp"
 #include <string>
 #include <vector>
 using namespace std;
 
-class Major
+struct Major
 {
-
-private:
-    // ID of the university offering this major
-    int uni_id;
-
     // Name of the major
-    string major_name;
+    string name;
 
     // GPA requirement for the major
     float gpa_req;
 
-    // Map of required courses for the major
-    vector<vector<vector<string>>> required_courses;
+    // Required courses for the major
+    vector<DisjunctiveReqs> required_courses;
 
-public:
     // Constructor to initialize a Major object
-    Major(int id, string name, float gpa)
-        : uni_id(id)
-        , major_name(name)
+    Major(string name, float gpa)
+        : name(name)
         , gpa_req(gpa)
     {}
 
@@ -40,4 +32,12 @@ public:
 
 
     */
+
+    void add_requirement(DisjunctiveReqs&& req)
+    {
+        required_courses.push_back(std::move(req));
+    }
+
+    // For simplified testing
+    bool operator==(const Major& rhs) const = default;
 };
